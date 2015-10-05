@@ -57,6 +57,12 @@ module.exports = function(app, passport){
 	// }));
 
 	/* TWITTER */
+	app.get('/profile-twitter', isLoggedIn, function(req, res){
+		res.render('profile-twitter.ejs', {
+			user: req.user // get the user from session and pass to template
+		});
+	});
+
 	app.get('/auth/twitter', passport.authorize('twitter',{scope: 'email'}));
 
 	// callback after twitter has authenticated the user

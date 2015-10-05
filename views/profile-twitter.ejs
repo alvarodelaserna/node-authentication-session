@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TwAds: Profile-Twitter</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+</head>
+
+<body>  
+    <header>
+        <div class="wrapper">
+            <a href="#"><img src="/images/logo.png" alt="mysquare logo" title="mysquare - checkin and go home!" /></a>
+            
+            <span id="usernav"><a href="/logout">Logout</a> - <a href="#">Settings</a> <span><img src="/images/user_avatar_s.jpg" /></span></span>
+        </div>
+    </header>
+    
+    <nav>
+        <ul id="n" class="clearfix">
+            <li><a href="/profile">Profile</a></li>
+            <li class="sel"><a href="/profile-twitter">Twitter</a></li>
+            <li><a href="/instagram">Instagram</a></li>
+        </ul>
+    </nav>
+    
+    <div id="content" class="clearfix">
+        <section id="wide">
+            <div id="userStats" class="clearfix">
+                <div class="pic">
+                    <a href="#"><img src="/images/profile-icon.png" width="180" height="150" /></a>
+                </div>                
+                <div class="data">
+                    <% if(user.twitter.token){ %>
+                        <h1><%= user.twitter.username %></h1>
+                    <% } else { %>
+                        <h1>No username</h1>
+                    <% } %>
+                </div>
+            </div>
+            <a class="twitter-timeline" href="https://twitter.com/search?q=%23bulldog%2C%20%23dogs" data-widget-id="651033381539606528">Tweets about #corgi, #dogs</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </section>
+    </div>
+</body>
+</html>
