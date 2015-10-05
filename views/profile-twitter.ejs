@@ -6,6 +6,39 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <!--<script>
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if(d.getElementById(id)) 
+                return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widjets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            console.log('Hasta aqui bien');
+            t._e = [];
+            t.ready = function(f){
+                t._e.push(f);
+            };
+            
+            console.log('return');
+
+            return t;
+        }(document, "script", "twitter-wjs"));-->
+    </script>
+    <script>
+        !function(d,s,id) {
+            var js,fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document,"script","twitter-wjs");</script>
 </head>
 
 <body>  
@@ -39,8 +72,7 @@
                     <% } %>
                 </div>
             </div>
-            <a class="twitter-timeline" href="https://twitter.com/search?q=%23bulldog%2C%20%23dogs" data-widget-id="651033381539606528">Tweets about #corgi, #dogs</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            <a class="twitter-timeline" href="https://twitter.com/search?q=%23bulldog%2C%20%23dogs" data-widget-id="651033381539606528">Tweets about #bulldog, #dogs</a>
         </section>
     </div>
 </body>
