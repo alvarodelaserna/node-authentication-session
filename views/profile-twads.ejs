@@ -13,13 +13,12 @@
         <div class="wrapper">
             <a href="#"><img src="/images/logo.png" alt="mysquare logo" title="mysquare - checkin and go home!" /></a>
             
-            <span id="usernav"><a href="#">Logout</a> - <a href="#">Settings</a> - <a href="/profile">Profile<span><img src="/images/user_avatar_s.jpg" /></span></a></span>
+            <span id="usernav"><a href="/logout">Logout</a> - <a href="#">Settings</a> <span><img src="/images/user_avatar_s.jpg" /></span></span>
         </div>
     </header>
     
     <nav>
         <ul id="n" class="clearfix">
-            <li><a href="/home">Homepage</a></li>
             <li class="sel"><a href="/profile">Profile</a></li>
             <li><a href="/twitter">Twitter</a></li>
             <li><a href="/instagram">Instagram</a></li>
@@ -34,7 +33,17 @@
                 </div>
                 <div class="socialMediaLinks">
                     <a href="/auth/twitter" class="btn btn-primary"><span class="fa fa-twitter"></span></a>
+                    <% if (!user.twitter.token) { %>
+                        <img src="/images/check-mark-unchecked.png">
+                    <% } else { %>
+                        <img src="/images/check-mark.png">
+                    <% } %>
                     <a href="/auth/instagram" class="btn btn-primary"><span class="fa fa-instagram"></span></a>
+                    <% if (!user.instagram.token) { %>
+                        <img src="/images/check-mark-unchecked.png">
+                    <% } else { %>
+                        <img src="/images/check-mark.png">
+                    <% } %>
                 </div>
                 
                 <div class="data">

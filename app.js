@@ -27,7 +27,16 @@ app.use(bodyParser()); // get info from html forms
 app.set('view-engine', 'ejs'); // ejs templating
 
 // passport
-app.use(session({secret: 'wholikesshortshorts'})); // session secret
+app.use(session({
+	cookieName: 'abracadabra',
+	secret: 'who{34.-{;kjhgfdgh}+]likesQG3;;shortsh[{orts', // session secret
+	duration: 30 * 60 * 1000,
+	activeDuration: 5 * 60 * 1000, // miliseconds
+	httpOnly: true, // prevents browser JavaScript from accessing cookies
+	secure: true, // ensures cookies are ONLY used over HTTPS
+	ephemeral: true // deletes the cookie when the browser is closed
+})); 
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session

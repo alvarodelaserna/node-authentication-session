@@ -1,7 +1,12 @@
 module.exports = function(app, passport){
 	/* HOME page*/
 	app.get('/', function(req, res){
-		res.render('index.ejs');
+		res.render('home.ejs');
+	});
+
+	/* LOGIN OR SIGN UP */
+	app.get('/signuporlogin', function(req, res){
+		res.render('signup-or-login.ejs', {message: req.flash('loginMessage')});
 	});
 
 	/* LOGIN */
@@ -11,7 +16,7 @@ module.exports = function(app, passport){
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/home',
+		successRedirect: '/profile',
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
@@ -23,7 +28,7 @@ module.exports = function(app, passport){
 
 	// process the signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/home',
+		successRedirect: '/profile',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
@@ -31,7 +36,7 @@ module.exports = function(app, passport){
 	/* HOME PAGE SECTION */
 	// we want this protected, so you have to be logged in to visit
 	// we will use route middleware to verify this (isLoggedIn())
-	app.get('/home', isLoggedIn, function(req, res){
+	app.get('/home', function(req, res){
 		res.render('home.ejs');
 	});
 
@@ -175,5 +180,5 @@ function isLoggedIn(req, res, next){
 	if(req.isAuthenticated())
 		return next();
 
-	res.redirect('/');
+	res.redirect('/login');
 }
